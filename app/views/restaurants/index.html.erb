@@ -1,0 +1,20 @@
+<h1>Restaurants</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <div id="<%= dom_id restaurant %>" class="container border">
+    <p>
+      <strong>Name:</strong>
+      <%= restaurant.name %>
+    </p>
+    <p>
+      <strong>category:</strong>
+      <%= restaurant.category %>
+    </p>
+    <p>
+      <%= link_to "Show this restaurant", restaurant %>
+    </p>
+  </div>
+<% end  %>
+
+<br>
+<%= link_to "New restaurant", new_restaurant_path %>

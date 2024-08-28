@@ -7,4 +7,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # get 'restaurants', to: 'restaurants#index'
+  # post 'restaurants', to: 'restaurants#create'
+  # get 'restaurants/new', to: 'restaurants#new', as: :new_task
+  # get 'restaurants/:id', to: 'restaurants#show', as: :task
+  # get 'restaurants/:id/edit', to: 'restaurants#edit', as: :edit_task
+  # patch 'restaurants/:id', to: 'restaurants#update'
+  # delete 'restaurants/:id', to: 'restaurants#destroy'
+
+  resources :restaurants do
+    resources :reviews, only: [:create]
+  end
 end

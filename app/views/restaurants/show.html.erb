@@ -1,0 +1,51 @@
+<h1 class= "text-center">Restaurant detail</h1>
+
+<div id="<%= dom_id @restaurant %>" class="container border">
+  <p>
+      <strong>Name:</strong>
+      <%= @restaurant.name %>
+  </p>
+  <p>
+    <strong>category:</strong>
+    <%= @restaurant.category %>
+  </p>
+
+   <p>
+    <strong>Phone:</strong>
+    <%= @restaurant.phone_number %>
+  </p>
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
+</div>
+
+<br>
+
+<div class="container border">
+  <h2>Reviews</h2>
+  <% @restaurant.reviews.each do |review| %>
+   <li><%= review.content%> <strong><%= review.rating %> </strong></li>
+
+<% end %>
+</div>
+
+<br>
+<div class="container border">
+
+  <%= simple_form_for [@restaurant, @review] do |f|  %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>
+
+   </div>
+
+<br>
+
+<div class="container border">
+
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %>
+  <%= link_to "Back to restaurants", restaurants_path %>
+
+</div>
